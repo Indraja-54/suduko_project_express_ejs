@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku Game</title>
+    <link href="/style.css" rel="stylesheet">
+</head>
+<body>
+    <h1>Sudoku Game</h1> 
+
+    <form method="POST" action="/sudoku/submit">
+        <div class="sudoku_grid">
+            <% for(let row = 0; row < 9; row++) { %>
+                <div class="sudoku_row">
+                    <% for(let col = 0; col < 9; col++) { %>
+                        <input type="text" class="cell" name="cell_<%= row %>_<%= col %>" 
+                               maxlength="1" size="1"
+                               value="<%= board[row][col] !== 0 ? board[row][col] : '' %>"
+                               <%= board[row][col] !== 0 ? 'readonly' : '' %> >
+                    <% } %>
+                </div>
+            <% } %>
+        </div>
+
+        <br>
+        <div class="boxes">
+            <button type="submit" class="submit">Submit</button>
+        </div>
+    </form>
+
+    <!-- Form for solving the Sudoku -->
+     <div class="boxes">
+         <form method="GET" action="/sudoku/solve">
+             <button type="submit" class="solve">Solve</button>
+         </form>
+     </div>
+</body>
+</html>

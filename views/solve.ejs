@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>solve the Solution</title>
+    <link href="/style.css" rel="stylesheet">
+</head>
+<body>
+    <h1>Solve the Solution</h1>
+    <div class="sudoku_grid">
+        <% for(let row = 0; row < 9; row++) { %>
+            <div class="sudoku_row">
+                <% for(let col = 0; col < 9; col++) { %>
+                    <input type="text" class="cell" name="cell_<%= row %>_<%= col %>" 
+                           maxlength="1" size="1"
+                           value="<%= solution[row][col]%>"
+                           <%= solution[row][col] !== 0 ? 'readonly' : '' %> >
+                <% } %>
+            </div>
+        <% } %>
+    </div>
+    <br>
+    <br><a href="/suduko">
+        <button>Generate New Puzzle</button>
+    </a>
+</body>
+</html>

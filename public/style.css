@@ -1,0 +1,91 @@
+.container{
+    place-items: center;
+    justify-content: center;
+}
+h1{
+    color: blueviolet;
+    place-items: center;
+    justify-content: center;
+    align-items: center;
+    margin:20px;
+    display: flex;
+}
+.container>h1{
+    color: blueviolet;
+}
+.card{
+    color: blueviolet;
+}
+.card>img{
+    height: 500px;
+    width: 500px;
+}
+button{
+    border-radius: 10px;
+    background-color: blueviolet;
+    padding: 10px;
+    color: white;
+    cursor: pointer;
+}
+.card>form>button:hover{
+    transform: scale3d(1.5,1.5,1);
+}
+.sudoku_grid {
+    display: grid;
+    grid-template-columns: repeat(9, 40px);
+    grid-template-rows: repeat(9, 40px);
+    gap: 0;
+    border: 3px solid black;
+    width: fit-content;
+    margin: auto;
+}
+
+/* Individual Cells */
+.cell {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    font-size: 18px;
+    border: 1px solid #888;
+    box-sizing: border-box;
+
+}
+
+/* Thick Borders for 3×3 Blocks */
+
+/* Thick Left Borders for Columns */
+.sudoku_grid input:nth-child(9n+1),
+.sudoku_grid input:nth-child(9n+4),
+.sudoku_grid input:nth-child(9n+7) {
+    border-left: 2px solid black;
+}
+
+/* Thick Right Border for the Last Column */
+.sudoku_grid input:nth-child(9n) {
+    border-right: 2px solid black;
+}
+
+/* Thick Top Borders for Rows */
+.sudoku_grid input:nth-child(-n+9), 
+.sudoku_grid input:nth-child(n+28):nth-child(-n+36), /* Fourth row */
+.sudoku_grid input:nth-child(n+55):nth-child(-n+63), /* Seventh row */
+.sudoku_grid input:nth-child(n+82):nth-child(-n+90) { /* Tenth row */
+    border-top: 2px solid black;
+}
+/* Thick Bottom Border for the Last Row */
+.sudoku_grid input:nth-child(n+73) {
+    border-bottom: 2px solid black;
+}
+.boxes{
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+a{
+    place-items: center;
+    justify-content: center;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}

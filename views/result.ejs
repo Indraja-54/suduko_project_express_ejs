@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku Result</title>
+    <link href="/style.css" rel="stylesheet">
+    <style>
+        .incorrect {
+            border: 2px solid red !important;
+        }
+        .correct{
+            border: 2px solid green !important;
+            background-color: lightgreen;
+            color:white
+        }
+    </style>
+</head>
+<body>
+    <h1>Sudoku Result</h1>
+
+    <div class="sudoku_grid">
+        <% for (let row = 0; row < 9; row++) { %>
+            <div class="sudoku_row">
+                <% for (let col = 0; col < 9; col++) { %>
+                    <input type="text" class="cell <%= validationMatrix[row][col] ? 'correct' : 'incorrect' %>" 
+                           value="<%= submittedBoard[`cell_${row}_${col}`] %>" readonly>
+                <% } %>
+            </div>
+        <% } %>
+    </div>
+
+    <br><a href="/suduko">
+        <button>Generate New Puzzle</button>
+    </a>
+</body>
+</html>
