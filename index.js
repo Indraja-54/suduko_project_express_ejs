@@ -10,13 +10,16 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 
+app.get("/suduko", (req, res) => {
+    res.render("index.ejs", {});
+});
+app.get("/",(req,res)=>{
+    res.render("index.ejs",{})
+})
 app.listen(port, () => {
     console.log(`✅ Server is running on http://localhost:${port}`);
 });
 
-app.get("/suduko", (req, res) => {
-    res.render("index.ejs", {});
-});
 
 app.get("/suduko/generate", (req, res) => {
     res.render("new.ejs", { board });
