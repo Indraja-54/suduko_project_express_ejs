@@ -1,4 +1,4 @@
-let board=Array.from({length:9},()=>Array(9).fill(0)) // Changed from const to let
+let board=Array.from({length:9},()=>Array(9).fill(0)) 
 const solution=Array.from({length:9},()=>Array(9).fill(0))
 function generateSuduko(){
     fillDiagona(board);
@@ -7,12 +7,12 @@ function generateSuduko(){
     removeDigits(board);
     return board;
 }
-function fillDiagona(matrix){
+function fillDiagona(board){
     for(let num=0;num<9;num+=3){
-        fillBox(matrix,num,num);
+        fillBox(board,num,num);
     }
 }
-function fillBox(matrix,row,col){
+function fillBox(board,row,col){
     let numSet=new Set();
     for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 3; j++) {
@@ -21,25 +21,25 @@ function fillBox(matrix,row,col){
                 num = Math.floor(Math.random() * 9) + 1;
             } while (numSet.has(num));
             numSet.add(num);
-            matrix[row + i][col + j] = num;
+            board[row + i][col + j] = num;
         }
     }
 }
-function copySolution(matrix){
+function copySolution(board){
     for(let i=0;i<9;i++){
         for(let j=0;j<9;j++){
-            solution[i][j]=matrix[i][j];
+            solution[i][j]=board[i][j];
         }
     }
 }
-function removeDigits(matrix){
+function removeDigits(board){
     let count=60;
     while(count!==0){
         let row=Math.floor(Math.random()*9)
         let col=Math.floor(Math.random()*9)
-        if(matrix[row][col]!==0){
+        if(board[row][col]!==0){
             count--;
-            matrix[row][col]=0;
+            board[row][col]=0;
         }
     }
 }
